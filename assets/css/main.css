@@ -3631,8 +3631,8 @@ input, select, textarea {
 					font-size: 3.25rem;
 					line-height: 1.1;
 					margin-bottom: 1rem;
-					margin-left: 1rem;
-					margin-right: 1rem;
+					/*margin-left: 1rem;*/
+					/*margin-right: 1rem;*/
 				}
 
 				#intro p {
