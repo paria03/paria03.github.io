@@ -3631,6 +3631,8 @@ input, select, textarea {
 					font-size: 3.25rem;
 					line-height: 1.1;
 					margin-bottom: 1rem;
+					margin-left: 1rem;
+					margin-right: 1rem;
 				}
 
 				#intro p {
@@ -3947,7 +3949,7 @@ input, select, textarea {
 		}
 
 		#main > .post {
-			padding: 8rem 8rem 6rem 8rem ;
+			padding: 1.5rem 5rem 5rem 5rem ;
 		}
 
 			#main > .post header.major > .date {
@@ -3967,7 +3969,7 @@ input, select, textarea {
 			@media screen and (max-width: 1280px) {
 
 				#main > .post {
-					padding: 6rem 4rem 4rem 4rem ;
+					padding: 1.5rem 4rem 4rem 4rem ;
 				}
 
 			}
@@ -4866,3 +4868,28 @@ input, select, textarea {
 		}
 
 	}
+
+.skill-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	margin: 0 0 1.5rem 0;
+}
+
+.skill-tags .tag {
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 999px;
+	padding: 0.35rem 0.85rem;
+	font-size: 0.9rem;
+	line-height: 1;
+}
+
+.profile-photo {
+	display: block;
+	margin: 2rem auto 0 auto;
+	width: 220px;
+	height: 220px;
+	object-fit: cover;
+	border-radius: 50%;
+	object-position: 50% 35%;
+}
