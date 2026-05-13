@@ -255,4 +255,120 @@
 
 	}
 
+	// Project pagination.
+	var $projectPosts = $('.posts');
+	var $projectPagination = $('#projectPagination');
+
+	if ($projectPosts.length > 0 && $projectPagination.length > 0) {
+
+		var $projectCards = $projectPosts.children('article');
+		var perPage = 4;
+		var totalPages = Math.ceil($projectCards.length / perPage);
+		var currentPage = 1;
+
+		var renderProjectPage = function(page) {
+
+			var start = (page - 1) * perPage;
+			var end = start + perPage;
+
+			$projectCards.hide().slice(start, end).show();
+
+			$projectPagination.find('.page').removeClass('active');
+			$projectPagination.find('.page').eq(page - 1).addClass('active');
+
+			if (page <= 1)
+				$projectPagination.find('.previous').addClass('disabled');
+			else
+				$projectPagination.find('.previous').removeClass('disabled');
+
+			if (page >= totalPages)
+				$projectPagination.find('.next').addClass('disabled');
+			else
+				$projectPagination.find('.next').removeClass('disabled');
+
+			currentPage = page;
+
+		};
+
+		if (totalPages <= 1) {
+			$projectPagination.hide();
+		}
+		else {
+
+			for (var i = totalPages; i >= 1; i--) {
+				$('<a href="#" class="page">' + i + '</a>').insertAfter($projectPagination.find('.previous'));
+			}
+
+			$projectPagination.on('click', '.page', function(event) {
+				event.preventDefault();
+				renderProjectPage(parseInt($(this).text(), 10));
+			});
+
+			$projectPagination.on('click', '.previous', function(event) {
+				event.preventDefault();
+
+				if (currentPage > 1)
+					renderProjectPage(currentPage - 1);
+			});
+
+			$projectPagination.on('click', '.next', function(event) {
+				event.preventDefault();
+
+				if (currentPage < totalPages)
+					renderProjectPage(currentPage + 1);
+			});
+
+			renderProjectPage(1);
+
+		}
+
+	}
+
+	// Video modal.
+	var $videoModal = $(
+		'<div class="video-modal" id="videoModal">' +
+			'<div class="video-modal-content">' +
+				'<a href="#" class="video-modal-close" aria-label="Close video">&times;</a>' +
+				'<video controls playsinline>' +
+					'<source src="" type="video/mp4" />' +
+					'Your browser does not support the video tag.' +
+				'</video>' +
+			'</div>' +
+		'</div>'
+	).appendTo($body);
+
+	var modalVideo = $videoModal.find('video').get(0);
+	var modalSource = $videoModal.find('source').get(0);
+
+	var closeVideoModal = function() {
+		$videoModal.removeClass('is-visible');
+		modalVideo.pause();
+		modalSource.src = '';
+		modalVideo.load();
+	};
+
+	$('[data-video-src]').on('click', function(event) {
+		event.preventDefault();
+
+		var src = $(this).attr('data-video-src');
+
+		if (!src)
+			return;
+
+		modalSource.src = src;
+		modalVideo.load();
+		$videoModal.addClass('is-visible');
+		modalVideo.play();
+	});
+
+	$videoModal.on('click', function(event) {
+		if ($(event.target).is('.video-modal, .video-modal-close'))
+			closeVideoModal();
+	});
+
+	$window.on('keyup', function(event) {
+		if (event.key === 'Escape' && $videoModal.hasClass('is-visible'))
+			closeVideoModal();
+	});
+
 })(jQuery);

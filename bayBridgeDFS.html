@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title>Distributed File System | Paria Akhtarmoghaddam</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+
+<div id="wrapper" class="fade-in">
+
+  <!-- Header -->
+  <header id="header">
+  </header>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <ul class="links">
+    </ul>
+    <ul class="icons">
+    </ul>
+  </nav>
+
+  <!-- Main -->
+  <div id="main">
+    <article class="post featured">
+      <header class="major">
+        <span class="date">Spring 2026</span>
+        <h2>Distributed File System</h2>
+        <strong>Languages:</strong> Go, Protocol Buffers, JSON <br>
+        <strong>Technologies:</strong> TCP Sockets, Distributed Systems, SHA-256 Checksums, Goroutines
+
+        <div style="text-align:center; margin-top: 25px;">
+          <a href="https://github.com/usf-cs677-sp26/project-1-bay-bridge"
+             target="_blank"
+             style="font-size: 2rem; color:#000; text-decoration:none; display:inline-flex; align-items:center; gap:10px;">
+            <i class="icon brands fa-github"></i>
+            <span style="font-size: 1.2rem;">View on GitHub</span>
+          </a>
+        </div>
+      </header>
+
+      <a href="#" class="image main"><img src="images/bayBridgeDFS.png" alt="Bay Bridge distributed file system workflow diagram" /></a>
+
+      <p>
+        This project is a distributed file system built in <strong>Go</strong> for my <strong>CS 677 Big Data</strong>
+        course at the University of San Francisco. Based on the course requirements for Project 1, the system includes a
+        <strong>Controller</strong>, <strong>Storage Nodes</strong>, and a <strong>Client</strong> that communicate over
+        <strong>TCP sockets</strong> using <strong>Protocol Buffers</strong>.
+      </p>
+
+      <p>
+        The client breaks files into chunks, asks the controller for placement decisions, and sends chunk data directly
+        to storage nodes. The system supports configurable replication, parallel retrieval, node registration, metadata
+        tracking, and controller persistence so files can still be managed after restart.
+      </p>
+
+      <p>
+        Core features include:
+      </p>
+      <ul>
+        <li>Chunk-based storage and parallel retrieval across multiple storage nodes</li>
+        <li>Pipeline replication with configurable replication factor for fault tolerance</li>
+        <li>SHA-256 checksum validation, corruption detection, and self-repair from replicas</li>
+        <li>Heartbeat-based node monitoring, file listing, deletion, and node statistics reporting</li>
+      </ul>
+
+      <p>
+        This project strengthened my understanding of distributed systems design, fault tolerance, message-based
+        communication, and building reliable storage workflows across a multi-node environment.
+      </p>
+
+      <a href="index.html" class="button">← Back to Main Page</a>
+    </article>
+  </div>
+
+  <!-- Copyright -->
+  <div id="copyright">
+    <ul>
+      <li>&copy; Paria Akhtarmoghaddam</li>
+      <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
